@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  jenkins:
+    build:
+      context: "."
+      dockerfile: "jenkins.Dockerfile"
+    ports: 
+      - 8080:8080
+      - 50000:50000
+    volumes: 
+      - /home/ids/dpc/core/jenkins_casc:/var/jenkins_casc
+    environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_casc
+    secrets: 
+      - jenkins_github_access
+    user: 1000:1000
+secrets:
+  jenkins_github_access:
+    file: .dpc_secret_jenkins_github_access
+
+volumes:
+  jenkins_home:
+  jenkins_casc:
+  
