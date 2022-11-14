@@ -9,7 +9,8 @@ services:
       - 8080:8080
       - 50000:50000
     volumes: 
-      - /home/ids/dpc/core/jenkins_casc:/var/jenkins_casc
+      - /home/ids/dpc1/dpc_core/jenkins_casc:/var/jenkins_casc
+      - /home/ids/dpc1/dpc_core/jenkins_home:/var/jenkins_home
     environment:
       - CASC_JENKINS_CONFIG=/var/jenkins_casc
     secrets: 
@@ -22,4 +23,3 @@ secrets:
 volumes:
   jenkins_home:
   jenkins_casc:
-  

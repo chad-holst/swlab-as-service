@@ -1,11 +1,18 @@
 jobs:
   - script: |
-      multibranchPipelineJob('configuration-as-code') {
+      multibranchPipelineJob('DPC') {
+        description("Dummy DPC application")
         branchSources {
           git {
-              id = 'configuration-as-code'
-              remote('https://github.com/jenkinsci/configuration-as-code-plugin.git')
-              includes("master main 1.36.x")
+              id('dpc_src')
+              credentialsId('github-access')
+              remote('https://github.com/rendevor/dpc_src.git')
+              includes("master main v.*")
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('dpc.Jenkinsfile')
+            }
           }
         }
       }
