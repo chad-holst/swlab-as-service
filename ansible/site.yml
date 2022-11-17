@@ -1,0 +1,4 @@
+- hosts: jenkins_agents_gen01
+  connection: local
+  roles:
+    - jenkins_agent_gen01

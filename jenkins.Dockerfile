@@ -5,4 +5,5 @@ RUN jenkins-plugin-cli --plugins \
     configuration-as-code:1569.vb_72405b_80249 \
     job-dsl:1.81 \
     blueocean:1.25.8 \
-    docker-workflow:528.v7c193a_0b_e67c
+    docker-workflow:528.v7c193a_0b_e67c \
+    swarm:3.37

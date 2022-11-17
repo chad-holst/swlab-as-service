@@ -1,0 +1,28 @@
+---
+  - name: Display the config
+    connection: local
+    shell: "ls -alrt"
+    register: output
+
+  - debug: var=output.stdout_lines
+
+  - name: Download swarm client
+    get_url:
+      url: "{{ jenkins_url }}/swarm/swarm-client.jar"
+      dest: "/tmp/swarm-client.jar"
+      force: yes
+
+  - name: Start agent in background
+    raw: "nohup java -jar /tmp/swarm-client.jar \
+      -url {{ jenkins_url }} \
+      -name {{ agent_name }} \
+      -deleteExistingClients \
+      -disableSslVerification \
+      -executors 4 \
+      -fsroot /tmp/jenkins_agent/ \
+      -labels \"{{ agent_labels }}\" \
+      -mode normal \
+      -password {{ agent_connction_passwd }} \
+      -username {{ agent_connection_username }} \
+       & sleep 1"
+    

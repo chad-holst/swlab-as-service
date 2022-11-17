@@ -1,0 +1,4 @@
+agent_name: jenkins_agent_gen01_01
+agent_labels: "localhost linux wsl2"
+agent_connection_username: admin
+# agent_connection_password: set password from command line.

@@ -5,6 +5,17 @@ services:
     build:
       context: "."
       dockerfile: "jenkins.Dockerfile"
+    environment:
+      JAVA_OPTS="-Xms512m \
+        -Xmx1g \
+        -XX:+UseG1GC \
+        -XX:+ExplicitGCInvokesConcurrent \
+        -XX:+ParallelRefProcEnabled \
+        -XX:+UseStringDeduplication \
+        -XX:+UnlockExperimentalVMOptions \
+        -XX:G1NewSizePercent=20 \
+        -XX:+UnlockDiagnosticVMOptions \
+        -XX:G1SummarizeRSetStatsPeriod=1"  
     ports: 
       - 8080:8080
       - 50000:50000
