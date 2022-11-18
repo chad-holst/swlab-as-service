@@ -6,4 +6,5 @@ RUN jenkins-plugin-cli --plugins \
     job-dsl:1.81 \
     blueocean:1.25.8 \
     docker-workflow:528.v7c193a_0b_e67c \
-    swarm:3.37
+    swarm:3.37 \
+    pipeline-stage-view:2.27
